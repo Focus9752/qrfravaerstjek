@@ -1,0 +1,20 @@
+body {
+    background-color: rgb(211, 231, 236);
+}
+
+#main {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 1em;
+}
+
+#info_box {
+    padding: 1em;
+    margin: 0.5em;
+    text-align: center;
+}
+
+#main, #info_box, #attendance {
+    border: 1px solid black;
+}
