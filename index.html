@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR-Fraværstjek</title>
     <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="main.js"></script>
 </head>
 <body>
     <div id="main">
         <div id="info_box">
-            <span id="class">Hold: 3a if</span> <span id="teacher">Lærer: MH</span>
+            <span id="class">Hold: 3a if</span> | <span id="teacher">Lærer: MH</span>
         </div>
         <div id="attendance">
             <ol id="attendance_list">
@@ -33,6 +34,15 @@
                 <li id="3a 25">Samuel Alvarez Grønbech-Jensen, 3a 25</li>
                 <li id="3a 26">Thor Marner, 3a 26</li>
             </ol>
+        </div>
+        <div id="bottomDiv">
+            <div id="bottomFloatLeft">
+                <span id="lastRefreshTime">Opdateret 13:20</span>
+            </div>
+            <button id="refreshButton" onclick="updateAttendance()">Opdatér fravær</button>
+            <div id="bottomFloatRight">
+                <span id="attendanceRatio">Antal elever: <span id="attendanceRatio_studentNumber">18/18</span></span>
+            </div>
         </div>
     </div>
 </body>

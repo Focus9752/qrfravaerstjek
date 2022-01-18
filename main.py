@@ -1,7 +1,6 @@
 import cv2
 from pyzbar import pyzbar
 import pyttsx3
-from playsound import playsound
 import json
 
 seennames = []
