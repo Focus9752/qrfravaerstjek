@@ -1,5 +1,3 @@
-from cgitb import text
-from operator import index
 import cv2, openpyxl, pyttsx3, pandas, sys
 from pyzbar import pyzbar
 import PySimpleGUI as sg
