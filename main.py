@@ -1,16 +1,14 @@
 from cgitb import text
 from operator import index
-import cv2
+import cv2, openpyxl, pyttsx3, pandas, sys
 from pyzbar import pyzbar
-import openpyxl
-import pyttsx3
-import pandas
-import cv2
 import PySimpleGUI as sg
+
 
 seennames = []
 
 studentsDict = {
+    "Antal elever til stede:": ["2/18", ""],
     "3a 02": ["Alberte Cort", "Fraværende"],
     "3a 31": ["Anton Lauve Hermann", "Fraværende"],
     "3a 07": ["Clara Thorsø Kousgaard", "Fraværende"],
@@ -31,22 +29,20 @@ studentsDict = {
     "3a 26": ["Thor Marner", "Fraværende"]
 }
 
-
-
 def updateFile():
-    studentsAttending = 0
+    studentsAttendingCount = 0
 
     for name in seennames:
         studentsDict[name][1] = "Til stede"
-        studentsAttending += 1
+    
+    for key, value in studentsDict.items():
+        if studentsDict[key][1] == "Til stede":
+            studentsAttendingCount += 1
+
+    studentsDict["Antal elever til stede:"] = [str(studentsAttendingCount) + "/18", " "]
 
     df = pandas.DataFrame(data=studentsDict)
     df.to_excel("fravær.xlsx", index=False)
-
-    wb = load_workbook(filename='fravær.xlsx')
-    ws = wb.worksheets[0]
-    ws["T1"] = "Antal elever til stede:"
-    ws["T2"] = str(studentsAttending) + "/18"
  
 
 def read_barcodes(frame):
@@ -80,14 +76,29 @@ def read_barcodes(frame):
             engine.runAndWait()
     return frame
 
+# Driver kode
+print("Velkommen!")
+print()
+print("Når du lige om lidt starter programmet vil du se en kameravisning der hjælper dig med at scanne QR-koderne.")
+print("Hold QR-koden op til kameraet og vent indtil programmet siger at du er tjekket ind.")
+print()
+print("Outputtet vil blive gemt i filen 'fravær.xlsx'.")
+print("Husk dog først at tjekke excelfilen når du har lukket programmet!")
+print()
+if input("Vil du starte programmet? (J/N): ").lower() == "j":
+    pass
+else:
+    sys.exit()
+
 window = sg.Window('Demo Application - OpenCV Integration', [[sg.Image(filename='', key='image')],], location=(800,400))
-camera = cv2.VideoCapture(0)       # Setup the camera as a capture device
+camera = cv2.VideoCapture(0)       # Indlæs kameraet
 updateFile()
-while True:                     # The PSG "Event Loop"
-    event, values = window.Read(timeout=20, timeout_key='timeout')      # get events for the window with 20ms max wait
+
+while True:                     # Løkke til visning af video
+    event, values = window.Read(timeout=20, timeout_key='timeout')      # Tjek om vinduet stadig er åbent hvert 20. ms
     if event is None:  
-        break                                            # if user closed window, quit
+        break                                            # Bryd løkken og stop programmet hvis vinduet er lukket
     cv2image= cv2.cvtColor(camera.read()[1],cv2.COLOR_BGR2RGB)
     frame = read_barcodes(cv2image)
-    window.find_element('image').Update(data=cv2.imencode('.png', frame)[1].tobytes()) # Update image in window
+    window.find_element('image').Update(data=cv2.imencode('.png', frame)[1].tobytes()) # Opdater billedet i videoen
 
