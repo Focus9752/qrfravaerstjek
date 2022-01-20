@@ -1,6 +1,8 @@
 from cgitb import text
+from operator import index
 import cv2
 from pyzbar import pyzbar
+import openpyxl
 import pyttsx3
 import pandas
 import cv2
@@ -29,13 +31,23 @@ studentsDict = {
     "3a 26": ["Thor Marner", "Fraværende"]
 }
 
+
+
 def updateFile():
+    studentsAttending = 0
+
     for name in seennames:
         studentsDict[name][1] = "Til stede"
-    
+        studentsAttending += 1
+
     df = pandas.DataFrame(data=studentsDict)
-    df.to_excel("fravær.xlsx")
-    
+    df.to_excel("fravær.xlsx", index=False)
+
+    wb = load_workbook(filename='fravær.xlsx')
+    ws = wb.worksheets[0]
+    ws["T1"] = "Antal elever til stede:"
+    ws["T2"] = str(studentsAttending) + "/18"
+ 
 
 def read_barcodes(frame):
     # Læs den nuværende frame fra kameraet og led efter QR-koder
@@ -70,6 +82,7 @@ def read_barcodes(frame):
 
 window = sg.Window('Demo Application - OpenCV Integration', [[sg.Image(filename='', key='image')],], location=(800,400))
 camera = cv2.VideoCapture(0)       # Setup the camera as a capture device
+updateFile()
 while True:                     # The PSG "Event Loop"
     event, values = window.Read(timeout=20, timeout_key='timeout')      # get events for the window with 20ms max wait
     if event is None:  
