@@ -2,7 +2,6 @@ import cv2, openpyxl, pyttsx3, pandas, sys
 from pyzbar import pyzbar
 import PySimpleGUI as sg
 
-
 seennames = []
 
 studentsDict = {
@@ -40,8 +39,7 @@ def updateFile():
     studentsDict["Antal elever til stede:"] = [str(studentsAttendingCount) + "/18", " "]
 
     df = pandas.DataFrame(data=studentsDict)
-    df.to_excel("fravær.xlsx", index=False)
- 
+    df.to_excel("fravær.xlsx", index=False) 
 
 def read_barcodes(frame):
     # Læs den nuværende frame fra kameraet og led efter QR-koder
