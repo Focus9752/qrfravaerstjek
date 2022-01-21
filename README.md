@@ -4,6 +4,8 @@
 
 Dette program kræver, at du har installeret python og pip (eller en anden package-manager) på din computer, før du kører programmet. Vi har desuden antaget at du installerer og kører programmet på en Windows-computer.
 
+Kør "py -m ensurepip --upgrade" for at installere pip.
+
 Sørg gerne for at din package-manager er opdateret før du installerer pakkerne. Hvis du ikke ønsker at opdatere din package-manager, så kør gerne "py -m pip install --upgrade pip setuptools wheel" i terminalen før du starter installationen.
 
 0. Download filerne, unzip dem.
