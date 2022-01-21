@@ -75,8 +75,10 @@ def read_barcodes(frame):
 # Driver kode
 print("Velkommen!")
 print()
+print("Husk at køre kommandoen 'pip install -r requirements.txt' hvis ikke du allerede har gjort det.")
+print()
 print("Når du lige om lidt starter programmet vil du se en kameravisning der hjælper dig med at scanne QR-koderne.")
-print("Hold QR-koden op til kameraet og vent indtil programmet siger at du er tjekket ind.")
+print("Hold QR-koden op til kameraet. En oplæserstemme vil fortælle dig når du er tjekket ind.")
 print()
 print("Outputtet vil blive gemt i filen 'fravær.xlsx'.")
 print("Husk dog først at tjekke excelfilen når du har lukket programmet!")
