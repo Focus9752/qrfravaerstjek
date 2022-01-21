@@ -6,7 +6,7 @@ Dette program kræver, at du har installeret python og pip (eller en anden packa
 
 0. Download filerne, unzip dem og åbn en terminal i den mappe hvor du har gemt filerne
 
-1. Installer alle de nødvendige pakker ved at køre kommandoen "py -m pip install -r requirements.txt" (eller tilsvarende i anden package-manager) i terminalen Bemærk at det kan tage lidt tid at installere pakkerne.
+1. Installer alle de nødvendige pakker ved at køre kommandoen "py -m pip install -r requirements.txt" (eller tilsvarende i anden package-manager) i terminalen. Bemærk at det kan tage lidt tid at installere pakkerne.
 
 2. Kør main.py
 
