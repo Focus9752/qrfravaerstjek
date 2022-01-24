@@ -8,9 +8,9 @@ Kør "py -m ensurepip --upgrade" for at installere pip.
 
 Sørg gerne for at din package-manager er opdateret før du installerer pakkerne. Hvis du ikke ønsker at opdatere din package-manager, så kør gerne "py -m pip install --upgrade pip setuptools wheel" i terminalen før du starter installationen.
 
-0. Download filerne, unzip dem.
+0. Download filerne og unzip dem.
 
-1. Åbn en terminal og naviger til mappen med filerne. Brug kommandoen "cd [path]" hvor du erstatter [path] med placeringen af den mappe du har gemt filerne i.
+1. Åbn en terminal og naviger til mappen med filerne. Brug kommandoen "cd [path]" hvor du erstatter [path] med placeringen af den mappe du har gemt filerne i (f.eks. "cd C:\Desktop\qrfravaerstjek").
 
 2. Installer alle de nødvendige pakker ved at køre kommandoen "py -m pip install -r requirements.txt" i terminalen. Bemærk at det kan tage lidt tid at installere pakkerne.
 
