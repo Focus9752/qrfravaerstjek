@@ -14,6 +14,6 @@ Sørg gerne for at din package-manager er opdateret før du installerer pakkerne
 
 2. Installer alle de nødvendige pakker ved at køre kommandoen "py -m pip install -r requirements.txt" i terminalen. Bemærk at det kan tage lidt tid at installere pakkerne.
 
-3. Kør main.py og følg anvisningerne/scan QR-koderne fra appen
+3. Kør main.py (brug kommandoen 'py main.py') og følg anvisningerne. Scan QR-koderne fra appen.
 
 4. Fraværsdata bliver gemt i filen "fravær.xlsl" (Husk ikke at åbne filen mens programmet kører!)
