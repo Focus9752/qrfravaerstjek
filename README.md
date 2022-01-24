@@ -2,7 +2,7 @@
 
 ## Instruktioner
 
-Dette program kræver, at du har installeret python og pip (eller en anden package-manager) på din computer, før du kører programmet. Vi har desuden antaget at du installerer og kører programmet på en Windows-computer.
+Dette program kræver, at du har installeret python 3.x og pip (eller en anden package-manager) på din computer, før du kører programmet. Vi har desuden antaget at du installerer og kører programmet på en Windows-computer.
 
 Kør "py -m ensurepip --upgrade" for at installere pip.
 
